@@ -9,29 +9,52 @@ Implementation and testing use AI-assisted development.
 
 ## Current progress
 
-The current milestone downloads and verifies the IBM file, prepares a focused
-subset and computes historical features. Model training, measured comparisons
-and the web demo are not implemented yet. See [data source notes](data/README.md).
+The project downloads and verifies the IBM file, prepares a focused subset,
+computes historical features and compares standard models. See
+[data source notes](data/README.md) and the frozen
+[comparison protocol](results/PROTOCOL.md). A web demo is a later milestone;
+this repository does not yet deploy an interactive interface.
 
-The planned comparison is an amount-based rule, Logistic Regression, Random Forest
-and Isolation Forest, evaluated using chronological splits and a fixed review
-budget. No new machine-learning algorithm is proposed.
+The comparison is an amount-based rule, Logistic Regression, Random Forest
+and Isolation Forest. Amount-only versions of the supervised models test whether
+history adds value. No new machine-learning algorithm is proposed.
+
+## First measured result
+
+The validation-selected historical Random Forest found **160 of 322** label-1
+test transactions while reviewing **2,037 of 40,731** rows (5% budget): 49.69%
+recall and 7.85% precision, with **1,877 false alerts**. Its test AP was 0.087369,
+compared with 0.054707 for the amount-only forest. These are synthetic-subset
+results, not production accuracy. All six candidates, including weak results,
+and the limitations are reported in [results](results/README.md).
 
 ## Run locally
 
-Use Python 3.11 or newer. This milestone uses only the Python standard library.
+Use Python 3.11 or newer (tested with Python 3.12). Data preparation uses the
+standard library; modeling adds NumPy, SciPy and scikit-learn.
 Run commands from the repository root:
 
 ```bash
+python -m venv .venv
+# Activate: source .venv/bin/activate (macOS/Linux)
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
 python -m src.download_data
 python -m src.build_dataset --input data/raw/HI-Small_Trans.csv --output data/features.csv
+python -m src.train --input data/features.csv --output-dir artifacts
 ```
 
 The download is approximately 476 MB. Alternatively, download
 `HI-Small_Trans.csv` from the [Kaggle dataset](https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml)
 and place it in `data/raw/`. The pipeline verifies its checksum. Downloaded data
-and generated CSVs stay out of Git.
+and generated CSVs stay out of Git. Full training runs locally; CI uses only
+small test fixtures and does not download the dataset.
+
+Training writes `artifacts/models.joblib`, `artifacts/scores.npz` and
+`artifacts/results.json`. These local artifacts are ignored by Git. Only load
+joblib models you generated with trusted code; unpickling untrusted files is
+unsafe. The model file contains preprocessing as well as estimators.
 
 ## Data and features
 
@@ -78,9 +101,10 @@ evaluation. Neither column belongs in the model inputs.
 
 ## Project structure
 
-- `src/`: download, data loading and historical feature computation.
-- `tests/`: small, hand-checkable examples and input-validation tests.
+- `src/`: download, data preparation, historical features and model comparison.
+- `tests/`: hand-checkable fixtures, leakage checks and model round-trip tests.
 - `data/`: source notes and ignored local data files.
+- `results/`: frozen protocol and aggregate measured results.
 
 ## Limitations
 

@@ -1,0 +1,287 @@
+{
+  "selected_model": "forest_history",
+  "selection": "highest validation average precision; alphabetical tie-break; no tuning",
+  "validation": {
+    "amount_rule": {
+      "average_precision": 0.014341425147347858,
+      "review_count": 1935,
+      "true_positives": 5,
+      "false_positives": 1930,
+      "false_negatives": 296,
+      "precision": 0.002583979328165375,
+      "recall": 0.016611295681063124,
+      "budget": 0.05,
+      "rows": 38688,
+      "positives": 301
+    },
+    "logistic_amount": {
+      "average_precision": 0.014341425147347858,
+      "review_count": 1935,
+      "true_positives": 5,
+      "false_positives": 1930,
+      "false_negatives": 296,
+      "precision": 0.002583979328165375,
+      "recall": 0.016611295681063124,
+      "budget": 0.05,
+      "rows": 38688,
+      "positives": 301
+    },
+    "logistic_history": {
+      "average_precision": 0.026599291289115107,
+      "review_count": 1935,
+      "true_positives": 10,
+      "false_positives": 1925,
+      "false_negatives": 291,
+      "precision": 0.00516795865633075,
+      "recall": 0.03322259136212625,
+      "budget": 0.05,
+      "rows": 38688,
+      "positives": 301
+    },
+    "forest_amount": {
+      "average_precision": 0.04643395641821376,
+      "review_count": 1935,
+      "true_positives": 110,
+      "false_positives": 1825,
+      "false_negatives": 191,
+      "precision": 0.056847545219638244,
+      "recall": 0.3654485049833887,
+      "budget": 0.05,
+      "rows": 38688,
+      "positives": 301
+    },
+    "forest_history": {
+      "average_precision": 0.10274991547732433,
+      "review_count": 1935,
+      "true_positives": 145,
+      "false_positives": 1790,
+      "false_negatives": 156,
+      "precision": 0.07493540051679587,
+      "recall": 0.48172757475083056,
+      "budget": 0.05,
+      "rows": 38688,
+      "positives": 301
+    },
+    "isolation_history": {
+      "average_precision": 0.005842142337200888,
+      "review_count": 1935,
+      "true_positives": 11,
+      "false_positives": 1924,
+      "false_negatives": 290,
+      "precision": 0.005684754521963824,
+      "recall": 0.036544850498338874,
+      "budget": 0.05,
+      "rows": 38688,
+      "positives": 301
+    }
+  },
+  "test": {
+    "amount_rule": {
+      "average_precision": 0.016579305860975967,
+      "review_count": 2037,
+      "true_positives": 9,
+      "false_positives": 2028,
+      "false_negatives": 313,
+      "precision": 0.004418262150220913,
+      "recall": 0.027950310559006212,
+      "budget": 0.05,
+      "rows": 40731,
+      "positives": 322
+    },
+    "logistic_amount": {
+      "average_precision": 0.016579305860975967,
+      "review_count": 2037,
+      "true_positives": 9,
+      "false_positives": 2028,
+      "false_negatives": 313,
+      "precision": 0.004418262150220913,
+      "recall": 0.027950310559006212,
+      "budget": 0.05,
+      "rows": 40731,
+      "positives": 322
+    },
+    "logistic_history": {
+      "average_precision": 0.02538900161413282,
+      "review_count": 2037,
+      "true_positives": 13,
+      "false_positives": 2024,
+      "false_negatives": 309,
+      "precision": 0.006381934216985763,
+      "recall": 0.040372670807453416,
+      "budget": 0.05,
+      "rows": 40731,
+      "positives": 322
+    },
+    "forest_amount": {
+      "average_precision": 0.0547066927243548,
+      "review_count": 2037,
+      "true_positives": 120,
+      "false_positives": 1917,
+      "false_negatives": 202,
+      "precision": 0.05891016200294551,
+      "recall": 0.37267080745341613,
+      "budget": 0.05,
+      "rows": 40731,
+      "positives": 322
+    },
+    "forest_history": {
+      "average_precision": 0.08736867893633571,
+      "review_count": 2037,
+      "true_positives": 160,
+      "false_positives": 1877,
+      "false_negatives": 162,
+      "precision": 0.07854688267059401,
+      "recall": 0.4968944099378882,
+      "budget": 0.05,
+      "rows": 40731,
+      "positives": 322
+    },
+    "isolation_history": {
+      "average_precision": 0.006225438640760457,
+      "review_count": 2037,
+      "true_positives": 9,
+      "false_positives": 2028,
+      "false_negatives": 313,
+      "precision": 0.004418262150220913,
+      "recall": 0.027950310559006212,
+      "budget": 0.05,
+      "rows": 40731,
+      "positives": 322
+    }
+  },
+  "counts": {
+    "train": {
+      "rows": 121962,
+      "positives": 796
+    },
+    "validation": {
+      "rows": 38688,
+      "positives": 301
+    },
+    "test": {
+      "rows": 40731,
+      "positives": 322
+    }
+  },
+  "feature_names": [
+    "log_amount",
+    "sender_count_24h",
+    "sender_total_24h",
+    "sender_mean_24h",
+    "sender_unique_receivers_24h",
+    "is_new_receiver_24h",
+    "amount_to_prior_mean_ratio"
+  ],
+  "seed": 42,
+  "configs": {
+    "amount_rule": "descending log_amount",
+    "logistic": {
+      "C": 1,
+      "class_weight": "balanced",
+      "solver": "lbfgs",
+      "max_iter": 2000,
+      "random_state": 42
+    },
+    "forest": {
+      "n_estimators": 100,
+      "max_depth": 12,
+      "min_samples_leaf": 10,
+      "class_weight": "balanced",
+      "random_state": 42,
+      "n_jobs": 2
+    },
+    "isolation": {
+      "n_estimators": 100,
+      "max_samples": 256,
+      "contamination": "auto",
+      "random_state": 42,
+      "n_jobs": 2
+    },
+    "logistic_history_log1p_columns": [
+      "sender_count_24h",
+      "sender_total_24h",
+      "sender_mean_24h",
+      "sender_unique_receivers_24h",
+      "amount_to_prior_mean_ratio"
+    ],
+    "amount_candidates_columns": [
+      "log_amount"
+    ],
+    "history_candidates_columns": [
+      "log_amount",
+      "sender_count_24h",
+      "sender_total_24h",
+      "sender_mean_24h",
+      "sender_unique_receivers_24h",
+      "is_new_receiver_24h",
+      "amount_to_prior_mean_ratio"
+    ],
+    "standardization": "logistic only; fitted on train only",
+    "review_budget": 0.05
+  },
+  "input_sha256": "c88ab55da0b9e328073bde6a0a17e6920d89c8ee02306bf4cf4b034dccaaa864",
+  "source_sha256": "b19d39f515523373f991b689c07e11e7b0b95c17a2c27a87d91584ae16c5b040",
+  "source_provenance": "source_sha256 is the expected pinned raw hash, verified by preparation; this trainer hashes only its actual input CSV",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
+  "error_summary": {
+    "reviewed": {
+      "count": 2037,
+      "feature_medians": {
+        "log_amount": 8.999636624461782,
+        "sender_count_24h": 0.0,
+        "sender_total_24h": 0.0,
+        "sender_mean_24h": 0.0,
+        "sender_unique_receivers_24h": 0.0,
+        "is_new_receiver_24h": 1.0,
+        "amount_to_prior_mean_ratio": 0.0
+      }
+    },
+    "true_positives": {
+      "count": 160,
+      "feature_medians": {
+        "log_amount": 9.43899946235193,
+        "sender_count_24h": 0.0,
+        "sender_total_24h": 0.0,
+        "sender_mean_24h": 0.0,
+        "sender_unique_receivers_24h": 0.0,
+        "is_new_receiver_24h": 1.0,
+        "amount_to_prior_mean_ratio": 0.0
+      }
+    },
+    "false_positives": {
+      "count": 1877,
+      "feature_medians": {
+        "log_amount": 8.97188011655008,
+        "sender_count_24h": 0.0,
+        "sender_total_24h": 0.0,
+        "sender_mean_24h": 0.0,
+        "sender_unique_receivers_24h": 0.0,
+        "is_new_receiver_24h": 1.0,
+        "amount_to_prior_mean_ratio": 0.0
+      }
+    },
+    "missed_positives": {
+      "count": 162,
+      "feature_medians": {
+        "log_amount": 8.144610664813403,
+        "sender_count_24h": 0.0,
+        "sender_total_24h": 0.0,
+        "sender_mean_24h": 0.0,
+        "sender_unique_receivers_24h": 0.0,
+        "is_new_receiver_24h": 1.0,
+        "amount_to_prior_mean_ratio": 0.0
+      }
+    }
+  },
+  "artifacts": {
+    "models": "/workspace/scratch/cc4012802804/financial-crime-rebuild/artifacts/models.joblib",
+    "scores": "/workspace/scratch/cc4012802804/financial-crime-rebuild/artifacts/scores.npz",
+    "results": "/workspace/scratch/cc4012802804/financial-crime-rebuild/artifacts/results.json"
+  }
+}

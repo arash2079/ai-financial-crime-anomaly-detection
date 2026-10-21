@@ -64,3 +64,9 @@ real-bank effectiveness claim follows from one ten-day synthetic subset and
 one seed. Accounts may recur across splits. This does not establish unseen-
 account generalization. No repeated experiments will be used to select a better
 test score; any later methodological change must be disclosed as a new experiment.
+
+Implementation references (version 1.8, matching requirements.txt):
+[Logistic Regression](https://scikit-learn.org/1.8/modules/generated/sklearn.linear_model.LogisticRegression.html),
+[Random Forest](https://scikit-learn.org/1.8/modules/generated/sklearn.ensemble.RandomForestClassifier.html),
+[Isolation Forest](https://scikit-learn.org/1.8/modules/generated/sklearn.ensemble.IsolationForest.html),
+[Average Precision](https://scikit-learn.org/1.8/modules/generated/sklearn.metrics.average_precision_score.html).

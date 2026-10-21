@@ -44,7 +44,9 @@ counts, including label availability, were inspected before freezing the scope;
 no model performance was used to choose it. Feature histories cover only the
 selected subset. The original file has minute-resolution timestamps without a
 timezone; UTC is an internal processing convention rather than verified source
-timezone information. No models have been trained in this rebuild yet.
+timezone information. The subsequent model comparison follows the frozen
+[modeling protocol](../results/PROTOCOL.md); measured results are reported
+[separately](../results/README.md).
 
 The complete preparation run selected **201,381** transactions, including
 **1,419** label-1 records and **113** self-transfers. No zero or negative amounts
