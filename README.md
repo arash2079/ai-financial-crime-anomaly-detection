@@ -12,8 +12,10 @@ Implementation and testing use AI-assisted development.
 The project downloads and verifies the IBM file, prepares a focused subset,
 computes historical features and compares standard models. See
 [data source notes](data/README.md) and the frozen
-[comparison protocol](results/PROTOCOL.md). A web demo is a later milestone;
-this repository does not yet deploy an interactive interface.
+[comparison protocol](results/PROTOCOL.md). The [web interface](web/README.md)
+now includes project notes, interactive browser-local inference and a recorded
+review-budget comparison. Its workflow publishes to GitHub Pages after tests;
+Pages must be enabled in this repository's settings before the first deployment.
 
 The comparison is an amount-based rule, Logistic Regression, Random Forest
 and Isolation Forest. Amount-only versions of the supervised models test whether
@@ -43,7 +45,19 @@ python -m unittest discover -s tests -v
 python -m src.download_data
 python -m src.build_dataset --input data/raw/HI-Small_Trans.csv --output data/features.csv
 python -m src.train --input data/features.csv --output-dir artifacts
+python -m src.export_web
+node --test tests/test_web.mjs
 ```
+
+Node.js 24 is used for browser-inference tests. It is not required to view the
+website. To serve the checked-in web assets locally:
+
+```bash
+python -m http.server 8000 --bind 127.0.0.1 --directory web
+```
+
+Open `http://127.0.0.1:8000`. No frontend dependency installation or build is
+needed. See the [web notes](web/README.md) for inference, deployment and limits.
 
 The download is approximately 476 MB. Alternatively, download
 `HI-Small_Trans.csv` from the [Kaggle dataset](https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml)
@@ -105,6 +119,7 @@ evaluation. Neither column belongs in the model inputs.
 - `tests/`: hand-checkable fixtures, leakage checks and model round-trip tests.
 - `data/`: source notes and ignored local data files.
 - `results/`: frozen protocol and aggregate measured results.
+- `web/`: static interface, browser inference and the exported forest.
 
 ## Limitations
 
