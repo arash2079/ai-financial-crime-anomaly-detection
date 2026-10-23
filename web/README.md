@@ -1,5 +1,7 @@
 # Interactive demo
 
+[Open the live GitHub Pages demo](https://arash2079.github.io/ai-financial-crime-anomaly-detection/).
+
 A small buildless HTML/CSS/JavaScript app for GitHub Pages, not a hosted
 prediction service. The two sections explain the experiment and let visitors
 change a hypothetical USD ACH payment and its historical context.

@@ -4,6 +4,8 @@ A personal ML project asking whether recent account activity improves
 suspicious-transaction ranking compared with amount alone. It uses IBM's public
 synthetic AML dataset from Kaggle, not employer or customer data.
 
+**[Open the interactive demo](https://arash2079.github.io/ai-financial-crime-anomaly-detection/)**
+
 This repository is a focused rebuild of an earlier exploratory prototype.
 Implementation and testing use AI-assisted development.
 
@@ -14,8 +16,8 @@ computes historical features and compares standard models. See
 [data source notes](data/README.md) and the frozen
 [comparison protocol](results/PROTOCOL.md). The [web interface](web/README.md)
 now includes project notes, interactive browser-local inference and a recorded
-review-budget comparison. Its workflow publishes to GitHub Pages after tests;
-Pages must be enabled in this repository's settings before the first deployment.
+review-budget comparison. It is published on GitHub Pages; the workflow tests
+changes before deploying updates.
 
 The comparison is an amount-based rule, Logistic Regression, Random Forest
 and Isolation Forest. Amount-only versions of the supervised models test whether
