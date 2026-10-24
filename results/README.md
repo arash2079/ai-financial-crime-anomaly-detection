@@ -70,7 +70,8 @@ $3,444 among missed positives. These are descriptions of score-defined groups,
 not reasons proving why a transaction was classified or evidence of criminality.
 
 Top-k review uses the entire held-out period's scores. It is not an online
-decision threshold; the future interactive demo must make this distinction.
+decision threshold; the interactive demo's budget explorer explains this
+distinction and keeps recorded test results separate from hypothetical inputs.
 
 ## Reproduce
 
@@ -86,8 +87,13 @@ predictions are not redistributed. Rebuilding reproduces those artifacts locally
 
 ## Checks
 
-31 unit/integration tests passed locally, including train-only preprocessing,
+At the October 21 modeling milestone, 31 unit/integration tests passed locally,
+including train-only preprocessing,
 test-data mutation independence and fresh-process model reload. An independent
 artifact check recomputed all 12 validation/test metric sets, reconciled saved
 features and labels to the prepared CSV, and reproduced all six models' scores
 after loading. No raw-data retraining is needed for the small CI tests.
+
+The October 23 handoff check passed 35 Python tests and 11 JavaScript tests,
+including export integrity and 80 synthetic browser/Python parity cases.
+The live HTML and exported forest matched the checked-in assets byte for byte.

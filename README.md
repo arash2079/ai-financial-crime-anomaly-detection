@@ -6,6 +6,9 @@ synthetic AML dataset from Kaggle, not employer or customer data.
 
 **[Open the interactive demo](https://arash2079.github.io/ai-financial-crime-anomaly-detection/)**
 
+For a guided tour of the question, results, demo and code, see the
+[short walkthrough](docs/WALKTHROUGH.md).
+
 This repository is a focused rebuild of an earlier exploratory prototype.
 Implementation and testing use AI-assisted development.
 
