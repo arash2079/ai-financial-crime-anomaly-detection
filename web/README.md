@@ -6,7 +6,7 @@ A small buildless HTML/CSS/JavaScript app for GitHub Pages, not a hosted
 prediction service. The two sections explain the experiment and let visitors
 change a hypothetical USD ACH payment and its historical context.
 
-![Locally tested browser demo](../docs/demo-preview.jpg)
+![Locally tested browser demo](demo-preview.jpg)
 
 Screenshot from a local browser test, not a public-deployment confirmation.
 
