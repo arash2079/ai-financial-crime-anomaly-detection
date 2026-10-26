@@ -256,6 +256,7 @@ print('fresh-process inference matches saved scores')
                     np.testing.assert_allclose(score_model(name, first_models[name], common_x),
                                                score_model(name, models[name], common_x), rtol=0, atol=1e-12)
         self.assertEqual(json.loads((first_dir / "results.json").read_text()), first)
+        self.assertEqual(first["artifacts"], {"models": "models.joblib", "scores": "scores.npz", "results": "results.json"})
         with np.load(first_dir / "scores.npz") as scores:
             for split in ("validation", "test"):
                 self.assertEqual(scores["X_" + split].shape, (20, 7))

@@ -206,7 +206,7 @@ def run_experiment(input_path="data/features.csv", output_dir="artifacts"):
         "versions": {"python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__,
                      "scikit-learn": sklearn.__version__, "joblib": joblib.__version__},
         "error_summary": _error_summary(X[masks["test"]], y[masks["test"]], arrays[f"test_{winner}"]),
-        "artifacts": {name: str(path) for name, path in paths.items()},
+        "artifacts": {name: path.name for name, path in paths.items()},
     }
     output_dir.mkdir(parents=True, exist_ok=True)
     joblib.dump(models, paths["models"])

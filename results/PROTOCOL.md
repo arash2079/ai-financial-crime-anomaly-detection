@@ -43,8 +43,8 @@ for constant-score groups. AP handles score ties as groups.
 
 Top-k is a retrospective ranking exercise within each entire evaluation period.
 It is not a learned score threshold, calibrated risk estimate or an online
-guarantee that exactly 5% of an incoming stream will be reviewed. A new web demo
-will need to explain that distinction.
+guarantee that exactly 5% of an incoming stream will be reviewed. The web demo
+explains that distinction.
 
 Keep labels, IDs, timestamps and split names out of model inputs. Earlier
 transaction history can cross split boundaries, but labels cannot. Report

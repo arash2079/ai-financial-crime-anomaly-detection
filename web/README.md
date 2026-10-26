@@ -58,24 +58,15 @@ sklearn reference scores. These are numerical parity fixtures, not exported
 transaction records. Additional tests cover money/count validation, empty
 histories, invalid trees, fixed-budget counts and exporter integrity.
 
-Desktop browser checks covered both tabs, keyboard navigation, scenario changes,
-real inference, derived features, invalid inputs, stale-score clearing and
-budget changes. Responsive CSS is included; a physical-phone test is not yet
-recorded. Loading failures have a retry state. A separate prediction server is
-not required.
+Browser checks cover both tabs, keyboard navigation, input errors, real model
+scores and budget changes. Responsive CSS is included; a physical-phone test
+has not yet been recorded. A separate prediction server is not required.
 
 ## Publish
 
-In **this repository**, set Settings → Pages → Build and deployment → Source
-to **GitHub Actions**. The workflow tests Python and JavaScript, then deploys
-only `web/` on pushes to main or manual workflow dispatch. Pull requests run
-checks without deployment. The `github-pages` environment and minimal Pages/OIDC
-permissions are scoped to deployment. Any protected-environment approval remains
-an owner action; the workflow does not bypass it.
-
-GitHub supplies the live URL in the successful deployment step. A committed
-workflow or passing tests alone do not mean the website is deployed. If first
-configuration was missing, enable it and re-run the failed deployment job.
+In this repository, set Settings → Pages → Build and deployment → Source to
+**GitHub Actions**. The workflow tests the project and publishes `web/` after
+changes to `main`; pull requests only run checks.
 
 Code is MIT. The model was trained on IBM's synthetic Kaggle data; source
 attribution, version and separate CDLA-Sharing-1.0 data license are documented

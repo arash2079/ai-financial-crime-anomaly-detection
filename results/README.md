@@ -1,9 +1,9 @@
-# First model comparison
+# Model comparison results
 
-Run on October 21, 2026, using the frozen [protocol](PROTOCOL.md) and the
+Run using the fixed [protocol](PROTOCOL.md) and the
 [IBM/Kaggle preparation scope](../data/README.md). These are measured results
 on synthetic USD ACH data, not real-bank performance or a full IBM benchmark.
-The protocol was committed as `9897468` before training. No hyperparameters,
+The protocol was written before training. No hyperparameters,
 features, split dates or candidate choices were changed after seeing scores.
 
 ## Data and selection
@@ -80,20 +80,18 @@ Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, scikit-learn 1.8.0 and joblib 1.5.3.
 Pinned dependencies are in requirements.txt. Full training is local, not a CI
 download-and-train job. Tests use separate artificial fixtures only.
 
-`metrics.json` is a verbatim copy of the generated `artifacts/results.json`.
-The referenced model and score paths are local ignored outputs, not downloadable
-files in this repository. Raw transactions, account identifiers and row-level
+`metrics.json` contains the aggregate training report. Its artifact names refer
+to local ignored outputs, not downloadable files in this repository. Raw
+transactions, account identifiers and row-level
 predictions are not redistributed. Rebuilding reproduces those artifacts locally.
 
 ## Checks
 
-At the October 21 modeling milestone, 31 unit/integration tests passed locally,
-including train-only preprocessing,
-test-data mutation independence and fresh-process model reload. An independent
+Tests cover train-only preprocessing, test-data mutation independence and
+fresh-process model reload. An independent
 artifact check recomputed all 12 validation/test metric sets, reconciled saved
 features and labels to the prepared CSV, and reproduced all six models' scores
 after loading. No raw-data retraining is needed for the small CI tests.
 
-The October 23 handoff check passed 35 Python tests and 11 JavaScript tests,
-including export integrity and 80 synthetic browser/Python parity cases.
-The live HTML and exported forest matched the checked-in assets byte for byte.
+The Python and JavaScript checks also cover export integrity and 80 synthetic
+browser/Python parity cases. Run them using the commands in the main README.

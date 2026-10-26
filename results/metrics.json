@@ -280,8 +280,8 @@
     }
   },
   "artifacts": {
-    "models": "/workspace/scratch/cc4012802804/financial-crime-rebuild/artifacts/models.joblib",
-    "scores": "/workspace/scratch/cc4012802804/financial-crime-rebuild/artifacts/scores.npz",
-    "results": "/workspace/scratch/cc4012802804/financial-crime-rebuild/artifacts/results.json"
+    "models": "models.joblib",
+    "scores": "scores.npz",
+    "results": "results.json"
   }
 }
