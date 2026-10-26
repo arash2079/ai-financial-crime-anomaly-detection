@@ -196,7 +196,7 @@ $('model-form').addEventListener('submit', async (event) => {
     });
     $('derived-details').hidden = false;
   } catch (error) {
-    $('score-value').textContent = '—';
+    $('score-value').textContent = '-';
     $('derived-details').hidden = true;
     $('form-error').textContent = error instanceof Error ? error.message : 'Please check the transaction context.';
     $('form-error').hidden = false;

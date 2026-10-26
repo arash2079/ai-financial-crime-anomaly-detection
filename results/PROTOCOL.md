@@ -10,7 +10,7 @@ All random seeds are 42. No parameter search, resampling or test-driven changes.
 
 | Candidate | Inputs | Fixed configuration |
 | --- | --- | --- |
-| Amount rule | `log_amount` | Higher amount ranks first; no fitting |
+| Amount rule | `log_amount` | Higher amount ranks first. No fitting. |
 | Logistic amount | `log_amount` | Balanced class weights, C=1, lbfgs, max_iter=2000 |
 | Logistic history | All seven features | Same logistic configuration |
 | Forest amount | `log_amount` | 100 trees, max_depth=12, min_samples_leaf=10, balanced class weights |
@@ -22,7 +22,7 @@ means, unique-receiver counts and the amount ratio. Do not log the existing
 `log_amount` again or the new-receiver indicator. Fit StandardScaler on training
 rows only. Tree models use the original seven numerical features. Fit Isolation
 Forest on all training rows without labels, including their small unknown-to-the-
-algorithm laundering fraction; negate score_samples so higher means more anomalous.
+algorithm laundering fraction. Negate score_samples so higher means more anomalous.
 Supervised models use label-1 predict_proba scores as ranking scores, not validated
 real-world risk probabilities. Class weights do not balance evaluation data.
 
@@ -38,7 +38,7 @@ AP uses sklearn.metrics.average_precision_score: it is not trapezoidal PR-AUC.
 Also report precision and recall at a preselected 5% review budget, using exactly
 ceil(0.05 * split rows) alerts. Equal scores at the budget boundary are resolved
 by original prepared-row order (chronological with source-row ties). This choice
-is deterministic but arbitrary; it can affect fixed-budget metrics, particularly
+is deterministic but arbitrary. It can affect fixed-budget metrics, particularly
 for constant-score groups. AP handles score ties as groups.
 
 Top-k is a retrospective ranking exercise within each entire evaluation period.
@@ -50,7 +50,7 @@ Keep labels, IDs, timestamps and split names out of model inputs. Earlier
 transaction history can cross split boundaries, but labels cannot. Report
 positive prevalence and true/false alert counts, not accuracy as the headline.
 For the selected model, summarize feature medians among true alerts, false
-alerts and missed positives; these are descriptive, not causal explanations.
+alerts and missed positives. These are descriptions, not causal explanations.
 
 ## Reproducibility and limitations
 
@@ -63,7 +63,7 @@ Keep weak or negative findings. No superiority, statistical significance or
 real-bank effectiveness claim follows from one ten-day synthetic subset and
 one seed. Accounts may recur across splits. This does not establish unseen-
 account generalization. No repeated experiments will be used to select a better
-test score; any later methodological change must be disclosed as a new experiment.
+test score. Any later change to the method must be reported as a new experiment.
 
 Implementation references (version 1.8, matching requirements.txt):
 [Logistic Regression](https://scikit-learn.org/1.8/modules/generated/sklearn.linear_model.LogisticRegression.html),

@@ -14,7 +14,7 @@ features, split dates or candidate choices were changed after seeing scores.
 | Validation | 38,688 | 301 |
 | Test | 40,731 | 322 |
 
-Fit only on train; no refit on validation. **forest_history** was selected by
+Models were fitted on training data only. I did not refit on validation. **forest_history** was selected by
 highest validation Average Precision (AP), before test scoring. Seed: 42.
 Prepared feature CSV SHA-256:
 `c88ab55da0b9e328073bde6a0a17e6920d89c8ee02306bf4cf4b034dccaaa864`.
@@ -36,7 +36,7 @@ tie-breaking. All six preselected candidates are shown, not just the winner.
 
 The selected model found **160** of **322** positives, missed **162**, and
 raised **1,877 false alerts**. Most reviewed rows (92.15%) were still label-0.
-The test positive prevalence was 0.79%; the model's review precision was about
+The test positive prevalence was 0.79%. The model's review precision was about
 9.94 times that prevalence. This describes retrospective alert yield, not
 accuracy, calibrated probability or a guarantee for new transactions.
 
@@ -50,8 +50,7 @@ amount-only logistic model has the same ranking as the amount rule here.
 
 Isolation Forest performed poorly on the laundering labels, despite detecting
 unusual feature combinations. Its AP was below test prevalence. An unusual
-transaction is not necessarily a laundering transaction. We retain this result
-rather than tuning the test set or removing an unsuccessful candidate.
+transaction is not necessarily a laundering transaction. I kept this result in the comparison instead of tuning on the test set or hiding the unsuccessful candidate.
 
 The forest is useful as an educational comparison, not ready for operational
 use: half the positives were missed and false-alert volume remained high.
@@ -70,7 +69,7 @@ $3,444 among missed positives. These are descriptions of score-defined groups,
 not reasons proving why a transaction was classified or evidence of criminality.
 
 Top-k review uses the entire held-out period's scores. It is not an online
-decision threshold; the interactive demo's budget explorer explains this
+decision threshold. The interactive demo's budget explorer explains this
 distinction and keeps recorded test results separate from hypothetical inputs.
 
 ## Reproduce
